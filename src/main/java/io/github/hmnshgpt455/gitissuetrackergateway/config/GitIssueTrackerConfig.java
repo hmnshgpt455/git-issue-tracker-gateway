@@ -14,6 +14,8 @@ public class GitIssueTrackerConfig {
                 .route(r -> r.path("/api/v1/user**", "/api/v1/user/**", "/api/v1/project**", "/api/v1/project/**",
                         "/api/v1/organization**", "/api/v1/organization/**")
                 .uri("lb://user-service"))
+                .route(r -> r.path("/api/v1/authentication**", "/api/v1/authentication/**")
+                .uri("lb://authentication-service"))
                 .build();
     }
 }
